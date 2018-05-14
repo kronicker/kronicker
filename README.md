@@ -2,7 +2,7 @@
 
 > kronicker's CLI
 
-<img src="screenshot.png">
+<img src="screenshot.png" width="640">
 
 ## Usage
 
