@@ -20,7 +20,7 @@ const welcomeConfig = {
 
 
 const choices = new Select.Choices([{
-  name: 'Github',
+  name: 'GitHub',
   url: `https://${author.url}`
 }, {
   name: 'Npm',
